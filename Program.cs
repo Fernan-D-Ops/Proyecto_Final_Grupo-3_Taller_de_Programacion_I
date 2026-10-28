@@ -17,7 +17,7 @@ namespace ProjectoFinal
             do
             {
                 Console.Write("De que numero desea saber su tabla de multiplicar? "); //.Write Para hacer la pregunta y capturar la respuesta en la misma linea
-                string resNumero = Console.ReadLine();
+                string resNumero = Console.ReadLine().Trim(); //.Trim sirve para recortar espacios en caso de que los haya, asi evitamos errores si el user pone " 5 " por ejemplo.
 
                 if (long.TryParse(resNumero, out long numero)) // Evaluamos que la respuesta del usuario se pueda convertir, si se puede digase si es "True" entonces guarda el valor en numero gracias a "out"
                 {
@@ -36,7 +36,7 @@ namespace ProjectoFinal
                 }
 
                 Console.Write("Desea calcular otra tabla? (Si) / (No) "); // Condicion para que el usuario sea quien decide salir del codigo
-                string resBucle = Console.ReadLine().ToLower();
+                string resBucle = Console.ReadLine().ToLower().Trim();
                 if (resBucle == "s" || resBucle == "si" || resBucle == "yes" || resBucle == "y") // Multiples manera de contestar para que sea mas amigable al user
                 {
                     Console.Clear();
