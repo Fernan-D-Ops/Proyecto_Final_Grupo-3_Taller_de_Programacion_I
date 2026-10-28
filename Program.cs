@@ -16,11 +16,12 @@ namespace ProjectoFinal
 
             do
             {
-                try // Con Try "Probamos" la respuesta del usuario para evitar que el usuario no rompa el programa con una respuesta no valida.
+                Console.Write("De que numero desea saber su tabla de multiplicar? "); //.Write Para hacer la pregunta y capturar la respuesta en la misma linea
+                string resNumero = Console.ReadLine();
+
+                if (long.TryParse(resNumero, out long numero)) // Evaluamos que la respuesta del usuario se pueda convertir, si se puede digase si es "True" entonces guarda el valor en numero gracias a "out"
                 {
-                    Console.Write("De que numero desea saber su tabla de multiplicar? "); //.Write Para hacer la pregunta y capturar la respuesta en la misma linea
-                    string resNumero = Console.ReadLine(); 
-                    int numero = int.Parse(resNumero);
+                     
                     for (int i = 1; i <= 12; i++)
                     {
                         long calculo = numero * i;
@@ -28,7 +29,7 @@ namespace ProjectoFinal
                     }
                 }
 
-                catch (FormatException) // En caso de una respuesta inadecuada o erronea le avisamos al usuario y lo devolvemos a la pregunta
+                else  // En caso de una respuesta inadecuada o erronea le avisamos al usuario y lo devolvemos a la pregunta
                 {
                     Console.WriteLine("Porfavor ingrese un numero valido");
                     continue;
